@@ -10,7 +10,7 @@ const baseState = {
   path: undefined,
   lastPath: undefined,
   params: {},
-  needRemvoe: false,
+  needRemove: false,
   animate: true,
   isDoingGoback: false,
 };
@@ -82,11 +82,11 @@ export const history = {
     const gobackPath = path || history.state.lastPath;
     const isCanGoback = history.canGoback(gobackPath);
     if (isCanGoback) {
-      history.state.needRemvoe = needRemove;
+      history.state.needRemove = needRemove;
       let nextState = { ...history.state };
       // 计算goback, 如果goback指定路径，会清理中间的历史
       function getNextState(dState, dStateMap) {
-        if (dState.needRemvoe && dStateMap[dState.path]) {
+        if (dState.needRemove && dStateMap[dState.path]) {
           delete dStateMap[dState.path];
         }
         if (!dState.lastPath) {
