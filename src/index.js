@@ -130,7 +130,6 @@ function reducer(data, action) {
   if (isHaveWindow) {
     window.history.pushState({}, document.title, HASH + data.state.path);
   }
-  console.log(data);
   return data;
 }
 
